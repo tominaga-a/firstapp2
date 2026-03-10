@@ -17,4 +17,12 @@ describe('ページ遷移のテスト', () => {
         expect(response.text).toMatch(/新規投稿ページ/);
       });
   });
+  describe('トップページの遷移に失敗', () => {
+    it('未定義のパスにアクセスした時、リダイレクトして302エラーを返す', async () => {
+      const response = await request(app)
+        .get('/some-undefined-path')
+        .expect(302);
+      expect(response.headers.location).toEqual('/non-existent-page');
+    });
+  });
 });

@@ -10,4 +10,8 @@ app.use("/public", express.static("public"));
 const routers = require("./routes");
 app.use(routers);
 
+app.use((req, res, next) => {
+  res.redirect(302, '/non-existent-page');
+});
+
 module.exports = app;
