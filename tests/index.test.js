@@ -1,6 +1,8 @@
 const request = require('supertest');
 const app = require('../app');
 
+describe('Webアプリケーションのテスト', () => {
+
 describe('ページ遷移のテスト', () => {
   describe('トップページ遷移のテスト', () => {
     it('トップページに正しく遷移できる', async () => {
@@ -25,4 +27,6 @@ describe('ページ遷移のテスト', () => {
       expect(response.headers.location).toEqual('/non-existent-page');
     });
   });
+});
+
 });
